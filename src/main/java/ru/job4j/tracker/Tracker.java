@@ -27,8 +27,7 @@ public class Tracker {
                 size++;
             }
         }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return Arrays.copyOf(itemsWithoutNull, size);
     }
 
     public Item[] findByName(String key) {
