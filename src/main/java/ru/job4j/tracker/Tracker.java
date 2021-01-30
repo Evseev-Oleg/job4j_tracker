@@ -7,6 +7,26 @@ public class Tracker {
     private int ids = 1;
     private int size = 0;
 
+    public Item[] getItems() {
+        return items;
+    }
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
@@ -63,6 +83,7 @@ public class Tracker {
             System.arraycopy(items, index + 1, items, index, size - index);
             items[size - 1] = null;
             size--;
+            res = true;
         }
         return res;
     }
