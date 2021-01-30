@@ -45,9 +45,9 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] itemsWithoutNull = new Item[items.length];
         int size = 0;
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                itemsWithoutNull[size] = item;
+        for (int i = 0;i < this.size;i++) {
+            if (items[i].getName().equals(key)) {
+                itemsWithoutNull[size] = items[i];
                 size++;
             }
         }
