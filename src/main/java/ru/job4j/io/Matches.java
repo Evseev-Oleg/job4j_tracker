@@ -1,8 +1,8 @@
-package ru.job4j.io.ru.job4j.io;
+package ru.job4j.io;
 
 import java.util.Scanner;
 
-public class Matche {
+public class Matches {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Игра 11.");
