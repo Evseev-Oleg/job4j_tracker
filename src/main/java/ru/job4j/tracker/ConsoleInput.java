@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.Scanner;
 
-public class ConsoleInp implements Input {
+public class ConsoleInput implements Input {
     Scanner scanner = new Scanner(System.in);
 
     @Override
