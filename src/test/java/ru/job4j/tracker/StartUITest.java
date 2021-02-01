@@ -8,12 +8,9 @@ import ru.job4j.tracker.Input.StubInput;
 import ru.job4j.tracker.Output.Output;
 import ru.job4j.tracker.Output.StubOutput;
 
-import java.io.OutputStream;
-import java.io.PrintStream;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 
 public class StartUITest {
@@ -69,16 +66,25 @@ public class StartUITest {
     public void whenFindAllItem() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Add item"));
+        tracker.add(new Item("Add item"));
         Input in = new StubInput(
-                new String[]{"0","1"}
+                new String[]{"0", "1"}
         );
         UserAction[] actions = {
                 new FindAllAction(output),
                 new Exit(output)
         };
+        String expected = "Menu." + System.lineSeparator() +
+                "0. Find all" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Find all Item ===" + System.lineSeparator() +
+                "Item{id=1, name='Add item'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. Find all" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Exit ===" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(),is("Menu.\\r\\n0. Find all\\r\\n1. Exit\\r\\n=== Find all Item ===\\r\\nItem{id=1, name='Add item'}\\r\\nMenu.\\r\\n0. Find all\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
+        Assert.assertEquals(expected, output.toString());
     }
 
     @Test
@@ -93,8 +99,17 @@ public class StartUITest {
                 new FindByIdAction(output),
                 new Exit(output)
         };
+        String expected = "Menu." + System.lineSeparator() +
+                "0. Find by Id" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Find Item by Id ===" + System.lineSeparator() +
+                "Item{id=1, name='Add item'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. Find by Id" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Exit ===" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is("Menu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Find Item by name Item ===\\r\\nЗаявки с таким именем не найдены\\r\\nMenu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
+        Assert.assertEquals(expected, output.toString());
     }
 
     @Test
@@ -103,13 +118,22 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Add item"));
         Input in = new StubInput(
-                new String[]{"0", String.valueOf(item.getId()), "1"}
+                new String[]{"0", String.valueOf(item.getName()), "1"}
         );
         UserAction[] actions = {
                 new FindByNameAction(output),
                 new Exit(output)
         };
+        String expected = "Menu." + System.lineSeparator() +
+                "0. Find by name" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Find by name Item ===" + System.lineSeparator() +
+                "Item{id=1, name='Add item'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. Find by name" + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() +
+                "=== Exit ===" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is("Menu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Find Item by name Item ===\\r\\nЗаявки с таким именем не найдены\\r\\nMenu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
+        Assert.assertEquals(expected, output.toString());
     }
 }
