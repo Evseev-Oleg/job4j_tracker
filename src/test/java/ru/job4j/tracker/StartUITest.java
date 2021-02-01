@@ -28,7 +28,7 @@ public class StartUITest {
                 new CreateAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
     }
 
@@ -45,7 +45,7 @@ public class StartUITest {
                 new ReplaceAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
 
@@ -61,7 +61,7 @@ public class StartUITest {
                 new DeleteAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertNull(tracker.findById(item.getId()));
     }
 
@@ -77,8 +77,8 @@ public class StartUITest {
                 new FindAllAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
-        assertThat(output.toString(),is("=== Find all Item ===\\r\\n=== Exit ===\\r\\n"));
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(output.toString(),is("Menu.\\r\\n0. Find all\\r\\n1. Exit\\r\\n=== Find all Item ===\\r\\nItem{id=1, name='Add item'}\\r\\nMenu.\\r\\n0. Find all\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
     }
 
     @Test
@@ -93,8 +93,8 @@ public class StartUITest {
                 new FindByIdAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
-        assertThat(output.toString(), is("=== Find Item by Id ===\\r\\n=== Exit ===\\r\\n"));
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(output.toString(), is("Menu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Find Item by name Item ===\\r\\nЗаявки с таким именем не найдены\\r\\nMenu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class StartUITest {
                 new FindByNameAction(output),
                 new Exit(output)
         };
-        new StartUI().init(in, tracker, actions);
-        assertThat(output.toString(), is("=== Find Item by name Item ===\\r\\n=== Exit ===\\r\\n"));
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(output.toString(), is("Menu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Find Item by name Item ===\\r\\nЗаявки с таким именем не найдены\\r\\nMenu.\\r\\n0. Find by name\\r\\n1. Exit\\r\\n=== Exit ===\\r\\n"));
     }
 }
