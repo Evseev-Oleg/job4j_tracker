@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertNull;
 
 public class StartUITest {
 //    @Test
@@ -31,16 +32,16 @@ public class StartUITest {
 //        assertThat(replaced.getName(), is("replaced item"));
 //    }
 //
-//    @Test
-//    public void whenDeleteItem() {
-//        Tracker tracker = new Tracker();
-//        Item item = new Item("new item");
-//        tracker.add(item);
-//        String[] answers = {
-//                String.valueOf(item.getId())
-//        };
-//        StartUI.deleteItem(new StubInput(answers), tracker);
-//        Item expected = new Item();
-//        assertThat(tracker.findById(item.getId()), is(tracker.findById(expected.getId())));
-//    }
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        UserAction delete = new DeleteAction();
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId())
+        };
+        delete.execute(new StubInput(answers), tracker);
+        assertNull(tracker.findById(item.getId()));
+    }
 }
