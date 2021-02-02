@@ -16,6 +16,6 @@ public class FactTest {
     @Test
     public void testCalc() {
         Fact fact = new Fact();
-        assertThat(Integer.parseInt(fact.calc(4)),is(24));
+        assertThat(fact.calc(4),is(24));
     }
 }

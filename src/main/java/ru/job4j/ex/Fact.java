@@ -6,7 +6,7 @@ public class Fact {
         System.out.println(fact.calc(4));
     }
 
-    public String calc(int n) {
+    public int calc(int n) {
         if(n < 0){
             throw new IllegalArgumentException("The number cannot be less than zero");
         }
@@ -14,7 +14,7 @@ public class Fact {
         for (int index = 1; index <= n; index++) {
             rsl *= index;
         }
-        return String.valueOf(rsl);
+        return rsl;
     }
 
 }
