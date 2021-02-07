@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public final class Tracker {
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
+   // private int size = 0;
     private static Tracker tracker;
 
     public static Tracker getTracker() {
@@ -15,7 +17,7 @@ public final class Tracker {
         return tracker;
     }
 
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
@@ -27,45 +29,46 @@ public final class Tracker {
         this.ids = ids;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
+//    public int getSize() {
+//        return size;
+//    }
+//
+//    public void setSize(int size) {
+//        this.size = size;
+//    }
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        //items[size++] = item;
+        items.add(item); //nenf
         return item;
     }
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return items;
     }
 
-    public Item[] findByName(String key) {
-        Item[] itemsWithoutNull = new Item[items.length];
+    public List<Item> findByName(String key) {
+        List<Item> itemsWithoutNull = new ArrayList<>();
         int size = 0;
-        for (int i = 0;i < this.size;i++) {
-            if (items[i].getName().equals(key)) {
-                itemsWithoutNull[size] = items[i];
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                itemsWithoutNull.add(item);
                 size++;
             }
         }
-        return Arrays.copyOf(itemsWithoutNull, size);
+        return itemsWithoutNull;
     }
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -78,7 +81,7 @@ public final class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
-            items[index] = item;
+            items.set(index, item);
             res = true;
         }
         return res;
@@ -88,9 +91,9 @@ public final class Tracker {
         boolean res = false;
         int index = indexOf(id);
         if (index != -1) {
-            System.arraycopy(items, index + 1, items, index, size - index);
-            items[size - 1] = null;
-            size--;
+            items.remove(index);
+           // System.arraycopy(items, index + 1, items, index, size - index);
+//            size--;
             res = true;
         }
         return res;
