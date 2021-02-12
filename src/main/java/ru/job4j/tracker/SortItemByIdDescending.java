@@ -5,6 +5,6 @@ import java.util.Comparator;
 public class SortItemByIdDescending implements Comparator<Item> {
     @Override
     public int compare(Item a, Item b) {
-        return b.getId() - a.getId();
+        return Integer.compare(b.getId(), a.getId());
     }
 }

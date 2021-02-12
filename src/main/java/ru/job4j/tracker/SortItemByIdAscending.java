@@ -6,7 +6,6 @@ public class SortItemByIdAscending implements Comparator<Item> {
 
     @Override
     public int compare(Item a, Item b) {
-//        return Integer.compare(a.getId(), b.getId());
-        return a.getId() - b.getId();
+       return Integer.compare(a.getId(), b.getId());
     }
 }
