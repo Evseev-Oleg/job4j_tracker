@@ -75,8 +75,7 @@ public class StartUITest {
                 + "Item{id=1, name='Add item'}" + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find all" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()
-                + "=== Exit ===" + System.lineSeparator();
+                + "1. Exit" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         Assert.assertEquals(expected, output.toString());
     }
@@ -100,8 +99,7 @@ public class StartUITest {
                 + "Item{id=1, name='Add item'}" + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find by Id" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()
-                + "=== Exit ===" + System.lineSeparator();
+                + "1. Exit" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         Assert.assertEquals(expected, output.toString());
     }
@@ -125,8 +123,7 @@ public class StartUITest {
                 + "Item{id=1, name='Add item'}" + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find by name" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()
-                + "=== Exit ===" + System.lineSeparator();
+                + "1. Exit" + System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         Assert.assertEquals(expected, output.toString());
     }
