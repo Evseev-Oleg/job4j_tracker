@@ -3,12 +3,12 @@ package ru.job4j.collection;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.*;
 
 public class JobComparatorTest {
     @Test
@@ -64,11 +64,9 @@ public class JobComparatorTest {
 
     @Test
     public void whenCompatorByNameAndProrityAndLength() {
-        Comparator<Job> comb = new JobAscenByPriority().thenComparing(new JobDescByName()).
+        Comparator<Job> comb = new JobDescByPriority().thenComparing(new JobDescByName()).
                 thenComparing(new JobDescByPriority());
         int rsl = comb.compare(new Job("Impl task", 0), new Job("Fix bug", 1));
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
-
-
 }
