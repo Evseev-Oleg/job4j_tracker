@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class UniqueTextTest{
+public class UniqueTextTest {
     @Test
     public void isEquals() {
         String origin = "My cat eats a mouse and milk";

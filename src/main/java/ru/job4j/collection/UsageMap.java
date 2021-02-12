@@ -4,10 +4,9 @@ import java.util.HashMap;
 
 public class UsageMap {
     public static void main(String[] args) {
-        HashMap<String,String> map = new HashMap<>();
-        map.put("oleg063053@gmail.com","Евсеев Олег Владимирович");
-        for (String key:
-                map.keySet()) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("oleg063053@gmail.com", "Евсеев Олег Владимирович");
+        for (String key : map.keySet()) {
             String value = map.get(key);
             System.out.println(key + " = " + value);
         }

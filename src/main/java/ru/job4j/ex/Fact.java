@@ -7,7 +7,7 @@ public class Fact {
     }
 
     public int calc(int n) {
-        if(n < 0){
+        if (n < 0) {
             throw new IllegalArgumentException("The number cannot be less than zero");
         }
         int rsl = 1;
@@ -16,5 +16,4 @@ public class Fact {
         }
         return rsl;
     }
-
 }

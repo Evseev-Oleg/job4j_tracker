@@ -2,10 +2,10 @@ package ru.job4j.oop;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+
 import org.junit.Test;
 
-
-public class ShopTest{
+public class ShopTest {
 
     @Test
     public void whenLastNull() {

@@ -55,7 +55,8 @@ public class SortItemTest {
         List<Item> list = Arrays.asList(new Item(2, "ebc"), new Item(4, "bds"),
                 new Item(1, "ads"), new Item(3, "cde"), new Item(1, "bcd"),
                 new Item(3, "atr"), new Item(2, "dir"), new Item(4, "opu"));
-        Comparator<Item> itemComparator = new SortItemByIdAscending().thenComparing(new SortItemByNameAscending());
+        Comparator<Item> itemComparator = new SortItemByIdAscending()
+                .thenComparing(new SortItemByNameAscending());
         list.sort(itemComparator);
         List<Item> expected = Arrays.asList(new Item(1, "ads"), new Item(1, "bcd"),
                 new Item(2, "dir"), new Item(2, "ebc"), new Item(3, "atr"),

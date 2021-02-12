@@ -1,9 +1,9 @@
-package ru.job4j.tracker.Input;
+package ru.job4j.tracker.input;
 
 
 import org.junit.Test;
-import ru.job4j.tracker.Output.Output;
-import ru.job4j.tracker.Output.StubOutput;
+import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.output.StubOutput;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

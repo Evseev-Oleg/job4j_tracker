@@ -8,7 +8,7 @@ public class Lead {
         Vehicle train2 = new Train();
         Vehicle plain1 = new Plain();
         Vehicle plain2 = new Plain();
-        Vehicle [] vehicles = new Vehicle[6];
+        Vehicle[] vehicles = new Vehicle[6];
         vehicles[0] = bus1;
         vehicles[1] = bus2;
         vehicles[2] = train1;
@@ -16,7 +16,7 @@ public class Lead {
         vehicles[4] = plain1;
         vehicles[5] = plain2;
         for (Vehicle veh : vehicles
-             ) {
+        ) {
             veh.move();
         }
     }

@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
 public class Doctor extends Profession {
-    Diagnosis diagnosis;
+    private Diagnosis diagnosis;
 
     public Doctor(Diagnosis diagnosis) {
         this.diagnosis = diagnosis;

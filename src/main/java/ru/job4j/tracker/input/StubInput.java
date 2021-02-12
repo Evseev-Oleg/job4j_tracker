@@ -1,6 +1,4 @@
-package ru.job4j.tracker.Input;
-
-import ru.job4j.tracker.Input.Input;
+package ru.job4j.tracker.input;
 
 public class StubInput implements Input {
 

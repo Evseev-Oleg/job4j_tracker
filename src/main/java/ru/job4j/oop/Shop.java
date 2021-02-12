@@ -1,6 +1,6 @@
 package ru.job4j.oop;
 
- import java.lang.*;
+import java.lang.*;
 
 public class Shop {
     public static void main(String[] args) {
@@ -23,8 +23,8 @@ public class Shop {
 //    }
 
     public static int indexOfNull(Product[] products) {
-        for (int i = 0;i < products.length;i++){
-            if(products[i] == null){
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
                 return i;
             }
         }

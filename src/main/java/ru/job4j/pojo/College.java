@@ -8,7 +8,7 @@ public class College {
         student.setFullName("Евсеев Олег Владимирович");
         student.setNumberGroup(2);
         student.setDataReceipt(new Date());
-        System.out.println("Student name: " + student.getFullName() + ", group number: " + student.getNumberGroup()
-                          + ", date of receipt: " + student.getDataReceipt());
+        System.out.println("Student name: " + student.getFullName() + ", group number: "
+                + student.getNumberGroup() + ", date of receipt: " + student.getDataReceipt());
     }
 }

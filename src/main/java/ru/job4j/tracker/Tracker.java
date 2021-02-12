@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Tracker {
+    private static Tracker tracker;
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private static Tracker tracker;
 
     public static Tracker getTracker() {
         if (tracker == null) {
@@ -26,7 +26,6 @@ public final class Tracker {
     public void setIds(int ids) {
         this.ids = ids;
     }
-
 
     public Item add(Item item) {
         item.setId(ids++);
