@@ -63,10 +63,20 @@ public class JobComparatorTest {
     }
 
     @Test
-    public void whenCompatorByNameAndProrityAndLength() {
-        Comparator<Job> comb = new JobDescByPriority().thenComparing(new JobDescByName()).
-                thenComparing(new JobDescByPriority());
-        int rsl = comb.compare(new Job("Impl task", 0), new Job("Fix bug", 1));
+    public void whenCompatorByNameAndPrority2() {
+        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
+        int rsl = cmpNamePriority.compare(
+                new Job("AAA", 0),
+                new Job("AAA", 1)
+        );
         assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
+    public void whenCompatorByNameAndProrityAndLength() {
+        Comparator<Job> comb = new JobDescByNameLn().thenComparing(new JobDescByName()).
+                thenComparing(new JobDescByPriority());
+        int rsl = comb.compare(new Job("Aaa", 1), new Job("Aaa", 0));
+        assertThat(rsl, lessThan(0));
     }
 }
