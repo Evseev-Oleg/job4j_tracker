@@ -1,6 +1,4 @@
-package ru.job4j.tracker.input;
-
-import ru.job4j.tracker.output.Output;
+package ru.job4j.tracker;
 
 public class ValidateInput implements Input {
     private final Output out;
