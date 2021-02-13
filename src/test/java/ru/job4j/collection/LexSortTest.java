@@ -8,24 +8,17 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class LexSortTest {
+
     @Test
     public void sortNum1and2and10() {
         String[] input = {
                 "10. Task.",
-                "6.0.1. Task.",
-                "6.0.3. Task.",
-                "6.3. Task.",
-                "6.5. Task.",
-                "6.4.1 Task.",
-                "2.3.4. Task."
+                "1. Task.",
+                "2. Task."
         };
         String[] out = {
-                "2.3.4. Task.",
-                "6.0.1. Task.",
-                "6.0.3. Task.",
-                "6.3. Task.",
-                "6.4.1 Task.",
-                "6.5. Task.",
+                "1. Task.",
+                "2. Task.",
                 "10. Task."
         };
         Arrays.sort(input, new LexSort());
