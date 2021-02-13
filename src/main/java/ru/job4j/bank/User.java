@@ -2,31 +2,45 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * класс описывает клиента банка
+ *
+ * @author OLEG EVSEEV
+ * @version 1.0
+ */
 public class User {
+    /**
+     * приватные поля: паспорт и имя
+     */
     private String passport;
     private String username;
 
+    /**
+     * имеет один конструктор с двумя параметрами
+     *
+     * @param passport
+     * @param username
+     */
     public User(String passport, String username) {
         this.passport = passport;
         this.username = username;
     }
 
+    /**
+     * метод прлучения данных паспорта
+     *
+     * @return
+     */
     public String getPassport() {
         return passport;
     }
 
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    /**
+     * переопределения метода equals
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -39,6 +53,11 @@ public class User {
         return Objects.equals(passport, user.passport);
     }
 
+    /**
+     * переопределение метода hashCode
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(passport);
