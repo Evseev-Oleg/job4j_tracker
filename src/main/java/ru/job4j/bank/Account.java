@@ -18,9 +18,10 @@ public class Account {
     /**
      * имеет один констркутор с двумя полями
      *
-     * @param requisite
-     * @param balance
+     * @param requisite;
+     * @param balance;
      */
+
     public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
@@ -29,8 +30,9 @@ public class Account {
     /**
      * метод для получения реквизитов счета
      *
-     * @return
+     * @return requisite;
      */
+
     public String getRequisite() {
         return requisite;
     }
@@ -38,8 +40,9 @@ public class Account {
     /**
      * метод для получения баланса счета
      *
-     * @return
+     * @return balance;
      */
+
     public double getBalance() {
         return balance;
     }
@@ -47,17 +50,15 @@ public class Account {
     /**
      * метод для работы с балансом счета
      *
-     * @param balance
+     * @param balance;
      */
+
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
     /**
      * переопределения метода equals
-     *
-     * @param o
-     * @return
      */
     @Override
     public boolean equals(Object o) {
@@ -73,8 +74,6 @@ public class Account {
 
     /**
      * переопределение метода hashCode
-     *
-     * @return
      */
     @Override
     public int hashCode() {

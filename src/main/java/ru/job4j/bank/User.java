@@ -18,9 +18,10 @@ public class User {
     /**
      * имеет один конструктор с двумя параметрами
      *
-     * @param passport
-     * @param username
+     * @param passport;
+     * @param username;
      */
+
     public User(String passport, String username) {
         this.passport = passport;
         this.username = username;
@@ -29,17 +30,15 @@ public class User {
     /**
      * метод прлучения данных паспорта
      *
-     * @return
+     * @return passport;
      */
+
     public String getPassport() {
         return passport;
     }
 
     /**
      * переопределения метода equals
-     *
-     * @param o
-     * @return
      */
     @Override
     public boolean equals(Object o) {
@@ -55,8 +54,6 @@ public class User {
 
     /**
      * переопределение метода hashCode
-     *
-     * @return
      */
     @Override
     public int hashCode() {

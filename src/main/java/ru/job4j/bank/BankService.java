@@ -22,8 +22,9 @@ public class BankService {
     /**
      * метод добавляет нового клиента в базу (пока с пустым листом счетов)
      *
-     * @param user
+     * @param user;
      */
+
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
@@ -31,9 +32,10 @@ public class BankService {
     /**
      * метод добавления клиенту нового счета
      *
-     * @param passport
-     * @param account
+     * @param passport;
+     * @param account;
      */
+
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -47,9 +49,10 @@ public class BankService {
     /**
      * метод поиска клиента в базе по номеру паспорта
      *
-     * @param passport
-     * @return
+     * @param passport;
+     * @return User;
      */
+
     public User findByPassport(String passport) {
         for (User key : users.keySet()) {
             if (key.getPassport().equals(passport)) {
@@ -62,10 +65,11 @@ public class BankService {
     /**
      * поиск аккаунта по номеру паспорта и рнквизитам клиента
      *
-     * @param passport
-     * @param requisite
-     * @return
+     * @param passport;
+     * @param requisite;
+     * @return Account;
      */
+
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -82,13 +86,14 @@ public class BankService {
     /**
      * метод для передвижения денежных средств между клиентами и счетами банка
      *
-     * @param srcPassport
-     * @param srcRequisite
-     * @param destPassport
-     * @param destRequisite
-     * @param amount
-     * @return
+     * @param srcPassport;
+     * @param srcRequisite;
+     * @param destPassport;
+     * @param destRequisite;
+     * @param amount;
+     * @return rsl;
      */
+
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
