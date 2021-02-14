@@ -2,6 +2,7 @@ package ru.job4j.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class SearchAtt {
@@ -25,16 +26,15 @@ public class SearchAtt {
         return rsl;
     }
 
-    UnaryOperator<List<Attachment>> filter = new UnaryOperator<List<Attachment>>() {
+    Predicate<List<Attachment>> filter1 = new Predicate<List<Attachment>>() {
         @Override
-        public List<Attachment> apply(List<Attachment> attachments) {
-            List<Attachment> list = new ArrayList<>();
+        public boolean test(List<Attachment> attachments) {
             for (Attachment att : attachments) {
                 if (att.getSize() > 100 || att.getName().contains("bug")) {
-                    list.add(att);
+                    return true;
                 }
             }
-            return list;
+            return false;
         }
     };
 }
