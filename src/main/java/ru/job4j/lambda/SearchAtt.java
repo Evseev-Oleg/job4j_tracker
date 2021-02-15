@@ -3,38 +3,35 @@ package ru.job4j.lambda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 
 public class SearchAtt {
     public static List<Attachment> filterSize(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getSize() > 100) {
-                rsl.add(att);
+        Predicate<Attachment> bySize = new Predicate<Attachment>() {
+            @Override
+            public boolean test(Attachment attachment) {
+                return attachment.getSize() > 100;
             }
-        }
-        return rsl;
+        };
+        return find(list, bySize);
     }
 
     public static List<Attachment> filterName(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getName().contains("bug")) {
-                rsl.add(att);
+        Predicate<Attachment> byName = new Predicate<Attachment>() {
+            @Override
+            public boolean test(Attachment attachment) {
+                return attachment.getName().contains("bug");
             }
-        }
-        return rsl;
+        };
+        return find(list, byName);
     }
 
-    Predicate<List<Attachment>> filter1 = new Predicate<List<Attachment>>() {
-        @Override
-        public boolean test(List<Attachment> attachments) {
-            for (Attachment att : attachments) {
-                if (att.getSize() > 100 || att.getName().contains("bug")) {
-                    return true;
-                }
+    public static List<Attachment>find(List<Attachment> list, Predicate<Attachment> predicate) {
+        List<Attachment> res = new ArrayList<>();
+        for (Attachment attachment : list) {
+            if (predicate.test(attachment)) {
+                res.add(attachment);
             }
-            return false;
         }
-    };
+        return res;
+    }
 }
