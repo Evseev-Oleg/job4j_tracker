@@ -46,4 +46,14 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 '}';
     }
+
+    public static void main(String[] args) {
+        Map<String, Student> map = new HashMap<>();
+        List<Student> students = Arrays.asList(new Student(1, "Петров")
+                , new Student(2, "Иванов")
+                , new Student(3, "Сидоров"));
+        map = students.stream().collect(Collectors.toMap(Student::getSurname
+                        , s -> s, (f, s) -> f.equals(s) ? f : s));
+        System.out.println(map);
+    }
 }
