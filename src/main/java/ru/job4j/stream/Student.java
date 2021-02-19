@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Student {
     private int score;
@@ -34,6 +35,32 @@ public class Student {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(score, surname);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "score=" + score +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        Student student = null;
+        List<Student> students = Arrays.asList(new Student(1, "Петров")
+                , new Student(2,"Иванов")
+                , new Student(3,"Сидоров"));
+        System.out.println(students.stream().distinct()
+                .collect(Collectors.toMap(Student :: getSurname
+                        , s -> s, (f, s) -> f.equals(s) ? f : s)));
+        System.out.println(students
+                .stream()
+                .collect(Collectors.toMap(
+                        Student::getSurname,
+                        s -> s,
+                        (f, s) -> { return f.equals(s) ? f : s; }
+                          )));
     }
 }
