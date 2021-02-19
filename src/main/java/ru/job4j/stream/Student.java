@@ -46,21 +46,4 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 '}';
     }
-
-    public static void main(String[] args) {
-        Student student = null;
-        List<Student> students = Arrays.asList(new Student(1, "Петров")
-                , new Student(2,"Иванов")
-                , new Student(3,"Сидоров"));
-        System.out.println(students.stream().distinct()
-                .collect(Collectors.toMap(Student :: getSurname
-                        , s -> s, (f, s) -> f.equals(s) ? f : s)));
-        System.out.println(students
-                .stream()
-                .collect(Collectors.toMap(
-                        Student::getSurname,
-                        s -> s,
-                        (f, s) -> { return f.equals(s) ? f : s; }
-                          )));
-    }
 }
