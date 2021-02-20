@@ -16,7 +16,7 @@ public class JobComparatorTest {
         List<Job> list = Arrays.asList(new Job("ebc", 2), new Job("bds", 4),
                 new Job("ads", 1), new Job("cde", 3));
         list.sort(new JobAscenByName());
-        List<Job> expected = Arrays.asList(new Job("ads", 1), new Job("bds", 4),
+        List<Job> expected = List.of(new Job("ads", 1), new Job("bds", 4),
                 new Job("cde", 3), new Job("ebc", 2));
         assertThat(list, is(expected));
     }
@@ -26,7 +26,7 @@ public class JobComparatorTest {
         List<Job> list = Arrays.asList(new Job("ebc", 2), new Job("bds", 4),
                 new Job("ads", 1), new Job("cde", 3));
         list.sort(new JobAscenByPriority());
-        List<Job> expected = Arrays.asList(new Job("ads", 1), new Job("ebc", 2),
+        List<Job> expected = List.of(new Job("ads", 1), new Job("ebc", 2),
                 new Job("cde", 3), new Job("bds", 4));
         assertThat(list, is(expected));
     }
@@ -36,7 +36,7 @@ public class JobComparatorTest {
         List<Job> list = Arrays.asList(new Job("ebc", 2), new Job("bds", 4),
                 new Job("ads", 1), new Job("cde", 3));
         list.sort(new JobDescByName());
-        List<Job> expected = Arrays.asList(new Job("ebc", 2), new Job("cde", 3),
+        List<Job> expected = List.of(new Job("ebc", 2), new Job("cde", 3),
                 new Job("bds", 4), new Job("ads", 1));
         assertThat(list, is(expected));
     }
@@ -46,7 +46,7 @@ public class JobComparatorTest {
         List<Job> list = Arrays.asList(new Job("ebc", 2), new Job("bds", 4),
                 new Job("ads", 1), new Job("cde", 3));
         list.sort(new JobDescByPriority());
-        List<Job> expected = Arrays.asList(new Job("bds", 4), new Job("cde", 3),
+        List<Job> expected = List.of(new Job("bds", 4), new Job("cde", 3),
                 new Job("ebc", 2), new Job("ads", 1));
         assertThat(list, is(expected));
 

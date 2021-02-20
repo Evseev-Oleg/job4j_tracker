@@ -30,7 +30,7 @@ public class DepDescCompTest {
     @Test
     public void whenUpDepartmentGoBefore2() {
         List<String> input = Arrays.asList("K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2", "K2");
-        List<String> expect = Arrays.asList("K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2");
+        List<String> expect = List.of("K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2");
         input.sort(new DepDescComp());
         assertThat(input, is(expect));
     }
