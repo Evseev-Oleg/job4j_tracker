@@ -64,21 +64,19 @@ public class BankService {
     /**
      * поиск аккаунта по номеру паспорта и рнквизитам клиента
      *
-     * @param passport;
-     * @param requisite;
+     * @param passport  ;
+     * @param requisite ;
      * @return Account;
      */
 
     public Account findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
-        if (user.isPresent()) {
-            return users.get(user.get())
-                    .stream()
-                    .filter(a -> a.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
-        }
-        return null;
+        Optional<Account> acc = Optional.empty();
+        return users.get(user.get())
+                .stream()
+                .filter(a -> a.getRequisite().equals(requisite))
+                .findFirst()
+                .orElse(acc.get());
     }
 
     /**
