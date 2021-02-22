@@ -1,6 +1,7 @@
 package ru.job4j.bank;
 
 import java.util.*;
+import java.util.Optional;
 
 /**
  * класс описывающий функции банка по работе с клиентами и со счетами клиентов
@@ -52,13 +53,9 @@ public class BankService {
      */
 
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
+        Optional<User> rsl = users.keySet().stream()
+                .filter(a -> a.getPassport().equals(passport))
+                .findFirst();
         return rsl;
     }
 
