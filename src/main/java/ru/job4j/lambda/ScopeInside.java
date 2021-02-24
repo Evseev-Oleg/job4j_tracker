@@ -3,7 +3,7 @@ package ru.job4j.lambda;
 import java.util.function.Supplier;
 
 public class ScopeInside {
-    static int total = 0;
+    private static int total = 0;
 
     public static void main(String[] args) {
         int[] number = {1, 2, 3};

@@ -14,8 +14,8 @@ import static org.junit.Assert.assertThat;
 public class ProfilesTest {
     @Test
     public void collectAddress() {
-        List<Profile> prof = Collections.singletonList(new Profile(new Address("O"
-                , "O", 0, 0)));
+        List<Profile> prof = Collections.singletonList(new Profile(new Address("O",
+                "O", 0, 0)));
         Profiles profiles = new Profiles();
         List<Address> list = profiles.collect(prof);
         assertThat(list.get(0).getCity(), is("O"));

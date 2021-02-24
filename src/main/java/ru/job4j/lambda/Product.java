@@ -7,7 +7,6 @@ public class Product {
     private int expirationDate;
     private boolean delivered;
 
-
     static class Builder {
         private String name;
         private String manufacturer;
@@ -50,7 +49,9 @@ public class Product {
             return product;
         }
     }
+
     public static void main(String[] args) {
+
         Product product = new Builder().buildName("name")
                 .buildDelivered(true)
                 .buildExpirationDate(12)
@@ -62,12 +63,12 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", quantity=" + quantity +
-                ", expirationDate=" + expirationDate +
-                ", delivered=" + delivered +
-                '}';
+        return "Product{"
+                + "name='" + name + '\''
+                + ", manufacturer='" + manufacturer + '\''
+                + ", quantity=" + quantity
+                + ", expirationDate=" + expirationDate
+                + ", delivered=" + delivered
+                + '}';
     }
 }

@@ -53,10 +53,9 @@ public class BankService {
      */
 
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = users.keySet().stream()
+        return users.keySet().stream()
                 .filter(a -> a.getPassport().equals(passport))
                 .findFirst();
-        return rsl;
     }
 
     /**
@@ -70,13 +69,10 @@ public class BankService {
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         Optional<Account> acc = Optional.empty();
-        if(user.isPresent()) {
-            return users.get(user.get())
-                    .stream()
-                    .filter(a -> a.getRequisite().equals(requisite))
-                    .findFirst();
-        }
-        return acc;
+        return user.map(value -> users.get(value)
+                .stream()
+                .filter(a -> a.getRequisite().equals(requisite))
+                .findFirst()).orElse(acc);
     }
 
     /**

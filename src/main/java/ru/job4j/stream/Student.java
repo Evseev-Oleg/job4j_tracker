@@ -29,8 +29,8 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        return score == student.score &&
-                Objects.equals(surname, student.surname);
+        return score == student.score
+                && Objects.equals(surname, student.surname);
     }
 
     @Override
@@ -41,19 +41,19 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "score=" + score +
-                ", surname='" + surname + '\'' +
-                '}';
+        return "Student{"
+                + "score=" + score
+                + ", surname='" + surname + '\''
+                + '}';
     }
 
     public static void main(String[] args) {
-        Map<String, Student> map = new HashMap<>();
-        List<Student> students = Arrays.asList(new Student(1, "Петров")
-                , new Student(2, "Иванов")
-                , new Student(3, "Сидоров"));
-        map = students.stream().collect(Collectors.toMap(Student::getSurname
-                        , s -> s, (f, s) -> f.equals(s) ? f : s));
+        Map<String, Student> map;
+        List<Student> students = Arrays.asList(new Student(1, "Петров"),
+                new Student(2, "Иванов"),
+                new Student(3, "Сидоров"));
+        map = students.stream().collect(Collectors.toMap(Student::getSurname,
+                s -> s, (f, s) -> f.equals(s) ? f : s));
         System.out.println(map);
     }
 }

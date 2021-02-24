@@ -22,8 +22,12 @@ public class Pupil {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Pupil pupil = (Pupil) o;
         return Objects.equals(name, pupil.name) && Objects.equals(subjects, pupil.subjects);
     }
